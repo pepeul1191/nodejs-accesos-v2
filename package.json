@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "App con HapiJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pepe Valdivia <jvaldivia@softweb.pe>",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "hapi": "^16.6.3",
+    "hapi-routes-loader": "^0.2.0",
+    "inert": "^4.2.1",
+    "mongoose": "^5.0.7",
+    "nodemon": "^1.14.1",
+    "path": "^0.12.7",
+    "vision": "^4.1.1"
+  }
+}
