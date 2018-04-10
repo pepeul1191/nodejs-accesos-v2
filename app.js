@@ -27,7 +27,7 @@ server.ext('onPreResponse', function(request, reply){
   }
   reply.continue();
 });
-/*
+
 server.on('response', function (request) {
   if (constants.data['ambiente'] == 'desarrollo'){
     console.log(
@@ -38,7 +38,7 @@ server.on('response', function (request) {
     );
   }
 });
-*/
+
 server.register(
   [
     Inert,
