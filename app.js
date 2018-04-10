@@ -7,7 +7,7 @@ const server = new Hapi.Server();
 const HRL = require('hapi-routes-loader');
 const Vision = require('vision');
 const Ejs = require('ejs');
-//const constants = require('./config/constants');
+const constants = require('./config/constants');
 
 server.connection({
   host: 'localhost',
