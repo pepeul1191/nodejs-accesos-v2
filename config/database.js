@@ -1,7 +1,17 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var db = mongoose.connect('mongodb://localhost:27017/test');
+const Sequelize = require('sequelize');
 
-exports.db = db;
-exports.Schema = Schema;
-exports.mongoose = mongoose;
+const sequelize = new Sequelize('database', 'username', 'password', {
+	//host: 'localhost',
+	dialect: 'sqlite',
+	pool: {
+		 max: 5,
+		 min: 0,
+		 idle: 10000
+	},
+	storage: 'db/accesos.db',
+	define: {
+		timestamps: false // true by default
+	}
+});
+
+exports.db = sequelize;

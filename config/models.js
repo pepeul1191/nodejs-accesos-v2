@@ -1,12 +1,23 @@
-var db = require('./database');
+const Sequelize = require('sequelize');
+const database = require('./database');
 
-var Blog = db.mongoose.model('blogs',
-  new db.Schema(
-    {
-      title:  String,
-      author: String,
-    }
-  )
-);
+var db = database.db;
 
-exports.Blog = Blog;
+
+const Sistema = db.define('sistemas', {
+	id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+	nombre: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+	version: {
+    type: Sequelize.STRING
+  },
+	repositorio: {
+    type: Sequelize.STRING
+  },
+});
