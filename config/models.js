@@ -21,3 +21,6 @@ const Sistema = db.define('sistemas', {
     type: Sequelize.STRING
   },
 });
+
+exports.db = db;
+exports.Sistema = Sistema;
