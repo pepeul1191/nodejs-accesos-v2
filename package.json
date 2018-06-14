@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "./node_modules/nodemon/bin/nodemon.js app.js --ignore public/"
   },
   "author": "Pepe Valdivia <jvaldivia@softweb.pe>",
   "license": "ISC",
@@ -14,7 +15,8 @@
     "hapi": "^16.6.3",
     "hapi-routes-loader": "^0.2.0",
     "inert": "^4.2.1",
-    "mongoose": "^5.0.7",
+    "sequelize": "^4.19.0",
+    "sqlite3": "^3.1.13",
     "nodemon": "^1.14.1",
     "path": "^0.12.7",
     "vision": "^4.1.1"
