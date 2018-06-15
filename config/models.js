@@ -3,7 +3,6 @@ const database = require('./database');
 
 var db = database.db;
 
-
 const Sistema = db.define('sistemas', {
 	id: {
     type: Sequelize.INTEGER,
@@ -22,5 +21,5 @@ const Sistema = db.define('sistemas', {
   },
 });
 
-exports.db = db;
+exports.DB = db;
 exports.Sistema = Sistema;

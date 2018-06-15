@@ -22,7 +22,7 @@ server.connection({
 
 server.ext('onPreResponse', function(request, reply){
   if (request.response.header) {
-    request.response.header('Server', 'Ubuntu;hapi.js');
+    request.response.header('Server', 'Ubuntu;');
     request.response.header('x-powered-by', 'hapi.js;Node.js');
   }
   reply.continue();
