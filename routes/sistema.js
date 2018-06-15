@@ -58,7 +58,6 @@ module.exports = [
       var eliminados = data['eliminados'];
       var array_nuevos = [];
       models.DB.transaction(function (t) {
-        var promises = [];
         eliminados.forEach(function(eliminado) {
           models.Sistema.destroy({
             where: {
@@ -81,18 +80,37 @@ module.exports = [
             transaction: t
           });
         });
+        var promises = [];
+        nuevos.forEach(function(nuevo) {
+          var newPromise = models.Sistema.create({
+            nombre: nuevo['nombre'],
+            version: nuevo['version'],
+            repositorio: nuevo['repositorio'],
+          }, {
+            transaction: t
+          });
+          promises.push(newPromise);
+        });
+        return Promise.all(promises).then(function(nuevosPromises) {
+            var returnPromises = [];
+            var i = 0;
+            nuevosPromises.forEach(function(promise){
+              var temp = {
+                'temporal': nuevos[i]['id'] ,
+                'nuevo_id': promise['id']
+              };
+              returnPromises.push(temp);
+            });
+            return Promise.all(returnPromises);
+        });
       }).then(function (result) {
-        console.log("1 ++++++++++++++++++++++++++++++");
-        console.log(result);
-        console.log("2 ++++++++++++++++++++++++++++++");
         var rpta = JSON.stringify({
           tipo_mensaje:  'success',
           mensaje: [
             'Se ha registrado los cambios en los sistemas',
-            "result"
+            result
           ]
         });
-        console.log("3 ++++++++++++++++++++++++++++++");
         reply(rpta);
       }).catch(function (err) {
         console.log("NO!!!");
